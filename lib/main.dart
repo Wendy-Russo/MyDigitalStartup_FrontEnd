@@ -33,20 +33,19 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(
           seedColor: themeCol,
           dynamicSchemeVariant: DynamicSchemeVariant.vibrant,
-          brightness: MediaQuery.of(context).platformBrightness,
+          brightness: Brightness.light,
         ),
         textTheme: TextTheme(
-          bodyMedium: GoogleFonts.poppins(
-            fontWeight: FontWeight.w500
-          ),
-          titleLarge: GoogleFonts.poppins(
+          bodyMedium:
+              GoogleFonts.inter(fontWeight: FontWeight.w400, fontSize: 18),
+          titleLarge: GoogleFonts.inter(
             fontWeight: FontWeight.w600,
           ),
         ),
         textButtonTheme: TextButtonThemeData(
           style: TextButton.styleFrom(
             minimumSize: Size(MediaQuery.of(context).size.width, 48),
-            foregroundColor:  themeCol,
+            foregroundColor: themeCol,
           ),
         ),
         elevatedButtonTheme: ElevatedButtonThemeData(
@@ -59,10 +58,7 @@ class MyApp extends StatelessWidget {
         outlinedButtonTheme: OutlinedButtonThemeData(
           style: OutlinedButton.styleFrom(
             minimumSize: Size(MediaQuery.of(context).size.width, 48),
-            side: BorderSide(
-              color: themeCol.shade900,
-              width: 2
-            ),
+            side: BorderSide(color: themeCol.shade900, width: 2),
           ),
         ),
         inputDecorationTheme: InputDecorationTheme(
@@ -75,9 +71,7 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      
-      home:LoginRegisterPage(),
+      home: LoginRegisterPage(),
     );
   }
 }
-
