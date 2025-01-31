@@ -1,7 +1,8 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:mentis/pages/conversation.dart';
+import 'package:mentis/pages/messages/conversation.dart';
+import 'package:mentis/pages/profile/profilePage.dart';
 
 class Chat extends StatelessWidget {
   const Chat({super.key});
@@ -41,8 +42,18 @@ class Chat extends StatelessWidget {
   Widget _buildChatItem(
       BuildContext context, String imageUrl, String name, String message) {
     return ListTile(
-      leading: CircleAvatar(
-        backgroundImage: NetworkImage(imageUrl),
+      leading: GestureDetector(
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => ProfilePage(),
+            ),
+          );
+        },
+        child: CircleAvatar(
+          backgroundImage: NetworkImage(imageUrl),
+        ),
       ),
       title: Text(name),
       subtitle: Text(message),

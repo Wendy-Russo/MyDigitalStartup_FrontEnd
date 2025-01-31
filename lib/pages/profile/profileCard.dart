@@ -1,90 +1,126 @@
 import 'package:flutter/material.dart';
+import 'package:mentis/pages/profile/profilePage.dart';
 
 class ProfileCard extends StatelessWidget {
-  const ProfileCard({super.key});
+  final String name;
+  final String location;
+  final double rating;
+  final int ratingNumber;
+  final int price;
+  final String description;
+
+  const ProfileCard({
+    super.key,
+    this.name = "Emilie",
+    this.location = "Nice & Visio",
+    this.rating = 4.9,
+    this.ratingNumber = 28,
+    this.price = 30,
+    this.description = "IA & Data Science",
+  });
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-        padding: const EdgeInsets.all(16),
+    return Card(
+      margin: EdgeInsets.all(0),
+      elevation: 0,
+      color: Colors.transparent,
+      child: GestureDetector(
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const ProfilePage()),
+          );
+        },
         child: Column(
-          mainAxisSize: MainAxisSize.min,
           children: [
-            Stack(
-              alignment: Alignment.bottomLeft,
-              children: [
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(16),
-                  child: const Image(
-                    width: 300,
-                    height: 300,
-                    fit: BoxFit.cover,
-                    image: NetworkImage('https://picsum.photos/150'),
+            AspectRatio(
+              aspectRatio: 1.0, // Ensures the image is a square
+              child: Stack(
+                alignment: Alignment.bottomCenter,
+                children: [
+                  ClipRRect(
+                    borderRadius: BorderRadius.all(Radius.circular(8.0)),
+                    child: Image.network(
+                      'https://picsum.photos/id/64/200',
+                      fit: BoxFit.cover, // Ensures the image covers the space
+                      width: double.infinity,
+                      height: double.infinity,
+                    ),
                   ),
-                ),
-                Container(
-                  width: 300,
-                  alignment: Alignment.bottomLeft,
-                  decoration: BoxDecoration(
-                    color: Colors.black.withOpacity(0.5),
-                    borderRadius: BorderRadius.circular(16),
-                  ),
-                  child: const Padding(
-                    padding: EdgeInsets.all(8.0),
+                  Container(
+                    decoration: BoxDecoration(
+                      borderRadius:
+                          BorderRadius.vertical(bottom: Radius.circular(8.0)),
+                      color: Colors.black26,
+                    ),
+                    width: double.infinity,
+                    padding: EdgeInsets.symmetric(
+                      horizontal: 8,
+                    ),
+                    height: 55,
                     child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'John Doe',
+                          name,
                           style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white,
-                          ),
+                              fontSize: 18,
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold),
                         ),
                         Text(
-                          'Dev Ops Engineer',
+                          location,
                           style: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white,
-                          ),
-                        )
+                              color: Colors.white,
+                              fontSize: 14,
+                              fontWeight: FontWeight.bold),
+                        ),
                       ],
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
-            SizedBox(
-              width: 300,
-              child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: const [
-                      Text(
-                        'John is a Dev Ops Engineer ',
+
+            // Title and Subtitle
+            Padding(
+              padding: EdgeInsets.all(8.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(children: [
+                    Icon(Icons.star_rounded, color: Colors.amber),
+                    Text("$rating",
                         style: TextStyle(
-                          fontSize: 16,
-                        ),
-                      ),
-                      Text(
-                        '5 years of experience.',
+                            fontSize: 14,
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold)),
+                    SizedBox(width: 8),
+                    Text('$ratingNumber avis',
                         style: TextStyle(
-                          fontSize: 16,
-                        ),
-                      ),
-                      Text(
-                        '5 Stars',
+                            fontSize: 14,
+                            color: Colors.black87,
+                            fontWeight: FontWeight.normal)),
+                    Expanded(child: SizedBox()),
+                    Text('$price €/h',
                         style: TextStyle(
-                          fontSize: 16,
-                        ),
-                      )
-                    ],
-                  )),
-            )
+                            fontSize: 14,
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold)),
+                  ]),
+                  Text(description,
+                      style: TextStyle(
+                          fontSize: 14,
+                          color: Colors.black54,
+                          fontWeight: FontWeight.bold)),
+                ],
+              ),
+            ),
           ],
-        ));
+        ),
+      ),
+    );
   }
 }

@@ -14,7 +14,13 @@ class ProfilePage extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            ProfileCard(),
+            SizedBox(
+              height: 400,
+              child: AspectRatio(
+                aspectRatio: 3 / 4,
+                child: ProfileCard(),
+              ),
+            ),
             const Padding(
               padding: EdgeInsets.all(16),
               child: Text(
