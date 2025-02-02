@@ -1,70 +1,29 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:mentis/pages/messages/conversation.dart';
-import 'package:mentis/pages/profile/profilePage.dart';
+import 'package:mentis/widgets/chatCard.dart';
 
 class Chat extends StatelessWidget {
   const Chat({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final ScrollController scrollController = ScrollController();
     return Scaffold(
       appBar: AppBar(
         elevation: 10,
         title: Text('Chat'),
       ),
-      body: ListView(
-        children: [
-          _buildChatItem(
-            context,
-            'https://via.placeholder.com/150',
-            'John Doe',
-            'Hey, how are you?',
+      body: SingleChildScrollView(
+        controller: scrollController, // Attach the vertical ScrollController
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: List.generate(
+            100,
+            (index) => ChatCard(),
           ),
-          _buildChatItem(
-            context,
-            'https://via.placeholder.com/150',
-            'Jane Smith',
-            'Are we still meeting tomorrow?',
-          ),
-          _buildChatItem(
-            context,
-            'https://via.placeholder.com/150',
-            'Mike Johnson',
-            'Check out this cool link!',
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildChatItem(
-      BuildContext context, String imageUrl, String name, String message) {
-    return ListTile(
-      leading: GestureDetector(
-        onTap: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => ProfilePage(),
-            ),
-          );
-        },
-        child: CircleAvatar(
-          backgroundImage: NetworkImage(imageUrl),
         ),
       ),
-      title: Text(name),
-      subtitle: Text(message),
-      onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => ChatDetailPage(name: name, message: message),
-          ),
-        );
-      },
     );
   }
 }

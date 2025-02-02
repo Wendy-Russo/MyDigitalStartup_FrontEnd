@@ -5,7 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:mentis/pages/auth/login.dart';
 import 'package:mentis/pages/auth/loginRegisterPage.dart';
 import 'package:mentis/pages/auth/register.dart';
-import 'package:mentis/pages/navbar.dart';
+import 'package:mentis/widgets/navbar.dart';
 import 'package:mentis/pages/settings.dart';
 
 void main() {

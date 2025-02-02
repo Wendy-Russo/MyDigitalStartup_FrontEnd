@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mentis/pages/profile/profileCard.dart';
+import 'package:mentis/widgets/profileCard.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});

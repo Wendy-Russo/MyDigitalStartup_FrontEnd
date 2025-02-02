@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:mentis/pages/missions/learn_card.dart';
+import 'package:mentis/widgets/gridList.dart';
+import 'package:mentis/widgets/horizontalList.dart';
+import 'package:mentis/widgets/learn_card.dart';
 
 class MissionsPage extends StatelessWidget {
   const MissionsPage({super.key});
@@ -17,80 +19,33 @@ class MissionsPage extends StatelessWidget {
         controller: scrollController, // Attach the vertical ScrollController
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Text(
-                'Demandes',
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                ),
+          children: const [
+            GridList(
+              crossAxisCount: 1,
+              aspectRatio: 3.5,
+              spacing: 8,
+              itemCount: 3,
+              title: "Demandes d'apprentissage",
+              child: LearnCard(),
+            ),
+            GridList(
+              crossAxisCount: 1,
+              aspectRatio: 3.5,
+              spacing: 8,
+              itemCount: 1,
+              title: "Apprentissages en cours",
+              child: LearnCard(
+                showInteractions: false,
               ),
             ),
-            // Create a ScrollController for the first horizontal scroll
-            Scrollbar(
-              thumbVisibility: true, // Always show the scrollbar thumb
-              interactive: true, // Enable interactions with the scrollbar
-              child: SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Row(
-                  //add gap
-                  children: List.generate(
-                    10, // Replace 10 with the number of profiles
-                    (index) => LearnCard(),
-                  ),
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Text(
-                'Prochains Cours',
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
-            // Create a ScrollController for the first horizontal scroll
-            Scrollbar(
-              thumbVisibility: true, // Always show the scrollbar thumb
-              interactive: true, // Enable interactions with the scrollbar
-              child: SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Row(
-                  //add gap
-                  children: List.generate(
-                    10, // Replace 10 with the number of profiles
-                    (index) => LearnCard(),
-                  ),
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Text(
-                'Cours Terminés',
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
-            // Create a ScrollController for the first horizontal scroll
-            Scrollbar(
-              thumbVisibility: true, // Always show the scrollbar thumb
-              interactive: true, // Enable interactions with the scrollbar
-              child: SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Row(
-                  //add gap
-                  children: List.generate(
-                    10, // Replace 10 with the number of profiles
-                    (index) => LearnCard(),
-                  ),
-                ),
+            GridList(
+              crossAxisCount: 1,
+              aspectRatio: 3.5,
+              spacing: 8,
+              itemCount: 3,
+              title: "Apprentissages terminés",
+              child: LearnCard(
+                showInteractions: false,
               ),
             ),
           ],

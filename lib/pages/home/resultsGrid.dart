@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mentis/pages/home/categoryCard.dart';
-import 'package:mentis/pages/profile/profileCard.dart';
+import 'package:mentis/widgets/categoryCard.dart';
+import 'package:mentis/widgets/profileCard.dart';
 
 class ResultsGrid extends StatelessWidget {
   const ResultsGrid({super.key});

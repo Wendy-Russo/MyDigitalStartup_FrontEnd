@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:mentis/pages/messages/chat.dart';
 import 'package:mentis/pages/home/dashboard.dart';
 import 'package:mentis/pages/missions/missions.dart';
-import 'package:mentis/pages/profile.dart';
+import 'package:mentis/widgets/profile.dart';
 import 'package:mentis/pages/publish.dart';
 
 class NavBar extends StatefulWidget {
