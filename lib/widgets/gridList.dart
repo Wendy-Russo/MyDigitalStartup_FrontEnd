@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:mentis/widgets/categoryCard.dart';
+import 'package:mentis/widgets/cards/categoryCard.dart';
 
 class GridList extends StatelessWidget {
   final String title;

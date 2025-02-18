@@ -22,7 +22,6 @@ class ProfileCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      margin: EdgeInsets.all(0),
       child: GestureDetector(
         onTap: () {
           Navigator.push(

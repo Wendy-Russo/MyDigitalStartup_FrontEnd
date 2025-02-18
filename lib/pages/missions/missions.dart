@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mentis/widgets/gridList.dart';
 import 'package:mentis/widgets/horizontalList.dart';
-import 'package:mentis/widgets/learn_card.dart';
+import 'package:mentis/widgets/cards/learnCard.dart';
 
 class MissionsPage extends StatelessWidget {
   const MissionsPage({super.key});

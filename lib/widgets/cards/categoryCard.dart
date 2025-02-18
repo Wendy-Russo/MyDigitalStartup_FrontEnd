@@ -13,9 +13,6 @@ class CategoryCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      margin: EdgeInsets.all(0),
-      elevation: 0,
-      color: Colors.transparent,
       child: GestureDetector(
         onTap: () {
           Navigator.push(

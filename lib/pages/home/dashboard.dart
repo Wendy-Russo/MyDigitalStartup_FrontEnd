@@ -1,10 +1,10 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:mentis/widgets/categoryCard.dart';
+import 'package:mentis/widgets/cards/categoryCard.dart';
 import 'package:mentis/widgets/gridList.dart';
 import 'package:mentis/widgets/horizontalList.dart';
-import 'package:mentis/widgets/profileCard.dart';
+import 'package:mentis/widgets/cards/profileCard.dart';
 
 class Dashboard extends StatelessWidget {
   const Dashboard({super.key});

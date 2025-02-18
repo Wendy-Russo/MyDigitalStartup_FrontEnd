@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:mentis/widgets/chatCard.dart';
+import 'package:mentis/widgets/cards/chatCard.dart';
 
 class Chat extends StatelessWidget {
   const Chat({super.key});
@@ -12,7 +12,7 @@ class Chat extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         elevation: 10,
-        title: Text('Chat'),
+        title: Text('Conversations'),
       ),
       body: SingleChildScrollView(
         controller: scrollController, // Attach the vertical ScrollController

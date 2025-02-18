@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:mentis/pages/messages/ChatDetailPage.dart';
+import 'package:mentis/pages/conversations/conversations_detail.dart';
 import 'package:mentis/pages/profile/profilePage.dart';
 
 class ChatCard extends StatelessWidget {

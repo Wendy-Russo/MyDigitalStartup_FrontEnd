@@ -7,34 +7,37 @@ class Settings extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Padding(
-        padding:EdgeInsets.all(16),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-            TextButton(
-              style: TextButton.styleFrom(
-                foregroundColor: Colors.red,
-              ),
-              onPressed: () {
-                  Navigator.pushNamedAndRemoveUntil(context, '/auth', (Route<dynamic> route) => false);
-                },
-              child: Text("Déconnexion"),
-            ),
-            Divider(
-              height: 32,
-              thickness: 2,
-            ),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-              child: Text('Fermer'),
-            ),
-          ],
-        )
-      ) 
+    return ClipRRect(
+      borderRadius: BorderRadius.vertical(top: Radius.circular(32)),
+      child: Scaffold(
+        body: Padding(
+            padding: EdgeInsets.all(16),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                TextButton(
+                  style: TextButton.styleFrom(
+                    foregroundColor: Colors.red,
+                  ),
+                  onPressed: () {
+                    Navigator.pushNamedAndRemoveUntil(
+                        context, '/auth', (Route<dynamic> route) => false);
+                  },
+                  child: Text("Déconnexion"),
+                ),
+                Divider(
+                  height: 32,
+                  thickness: 2,
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                  child: Text('Fermer'),
+                ),
+              ],
+            )),
+      ),
     );
   }
 }
